@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - Admin</title>
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="/public/assets/css/styles.css" rel="stylesheet" />
+    <!-- perticular page css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="sb-nav-fixed">
+    <!--================================= TOP Nav Bar Start========================-->
+
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark d-flex justify-content-between">
+
+        <div class="">
+            <a class="navbar-brand ps-3 ms-4 me-5" href="dashboard">MEMO-Gram</a>
+
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                    class="fas fa-bars"></i></button>
+        </div>
+        <div class="me-2">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#logOutModel">
+                <i class="fa fa-power-off" aria-hidden="true"></i>
+            </button>
+        </div>
+
+    </nav>
+    <!--================================= TOP Nav Bar End========================-->
+
+    <div id="layoutSidenav">
+        <!--================================= Side Nav Bar Start========================-->
+
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="dashboard">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Management</div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapse"
+                            aria-expanded="false" aria-controls="collapse">
+                            <div class="sb-nav-link-icon"><i class="fa fa-user-circle"></i></div>
+                            Registration Form
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="country">Country</a>
+                                <a class="nav-link" href="businessType">Business Type</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
+                            aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fa fa-user-circle"></i></div>
+                            Users
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="users">Normal Users</a>
+                                <a class="nav-link" href="businessUsers">Business Users</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapses"
+                            aria-expanded="false" aria-controls="collapses">
+                            <div class="sb-nav-link-icon"><i class="fa fa-user-circle"></i></div>
+                            Verification
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapses" aria-labelledby="headingFive"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="verificationRequest">Verification Request</a>
+                                <a class="nav-link" href="verifiedUsers">Verified Users</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                            aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fa fa-database"></i></div>
+                            Posts
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingThree"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="newPost">Pending Posts</a>
+                                <a class="nav-link" href="ApprovePost">Approve Posts</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link" href="categoryList">
+                            <div class="sb-nav-link-icon"><i class="fa fa-list-alt"></i></div>
+                            Category
+                        </a>
+
+                        <a class="nav-link" href="subadmin">
+                            <div class="sb-nav-link-icon"><i class="fa fa-list-ul"></i></div>
+                            Sub-Admin
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePage"
+                            aria-expanded="false" aria-controls="collapsePage">
+                            <div class="sb-nav-link-icon"><i class="fa fa-cog"></i></div>
+                            Setting
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePage" aria-labelledby="headingFour"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="profile">Profile</a>
+                                <a class="nav-link" href="changePassword">Change Password</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Admin
+                </div>
+            </nav>
+        </div>
+        <!--================================= Side Nav Bar End========================-->
+
+
+
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-title-box">
+                                    <h4 class="page-title mt-5 mb-3"> Users </h4>
+                                    <% if(messages.success) {%>
+                                        <div class="alert alert-success" role="alert">
+                                            <strong>!!!successfully!!!</strong>
+                                            <%= messages.success %>
+                                                <button type="button" class="close btn btn-danger"
+                                                    data-bs-dismiss="alert" aria-hidden="true">×</button>
+                                        </div>
+                                        <% } %>
+                                            <% if(messages.error) {%>
+                                                <div class="alert alert-danger d-flex justify-content-between"
+                                                    role="alert">
+                                                    <strong>!!error!!</strong>
+                                                    <%= messages.error %>
+                                                        <button type="button" class="close btn btn-danger"
+                                                            data-bs-dismiss="alert" aria-hidden="true">×</button>
+                                                </div>
+                                                <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card m-b-20">
+                                    <div class="card-body">
+                                        <table id="datatable"
+                                            class="table datatable table-bordered table-responsive dt-responsive nowrap"
+                                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Address</th>
+                                                    <th>Number</th>
+                                                    <!-- <th>company_type</th> -->
+                                                    <th>createdAt</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% data.forEach(function(value) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <%=value.username%>
+                                                        </td>
+                                                        <td>
+                                                            <%=value.address%>
+                                                        </td>
+                                                        <td>
+                                                            <%=value.phoneNumber%>
+                                                        </td>
+                                                        <td>
+                                                            <%=moment(value.createdAt).format('HH-MM / DD-MM-YYYY') %>
+                                                        </td>
+                                                        <td>
+                                                            <a href="deleteVerifiedUser/<%=value._id%>" class="btn btn-primary"
+                                                                title="delete"><i class="fa fa-trash"></i></a>
+                                                            <a class="btn btn-primary" title="view"
+                                                                class="btn btn-primary btn-sm waves-effect waves-light"
+                                                                data-bs-toggle="modal" data-bs-target=".viewModel"
+                                                                onclick="openUserDetail('<%=value._id%>')"><i
+                                                                    class="fa fa-eye" style="color: #fff;"></i></a>
+                                                            <% if(value.status) {%>
+                                                                <a title="block User"
+                                                                    href="updateUserStatus/verifiedUsers/0/?id=<%=value._id%>"><span
+                                                                        class="badge badge-warning">Active</span></a>
+                                                                <% } %>
+                                                                    <% if(value.status==false) {%>
+                                                                        <a title="Activate User"
+                                                                            href="updateUserStatus/verifiedUsers/1/?id=<%=value._id%>"><span
+                                                                                class="badge badge-danger">Blocked</span></a>
+                                                                        <% } %>
+                                                        </td>
+                                                    </tr>
+                                                    <% }) %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+                    </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <footer class="footer">
+                            © 2022 MEMO-Gram: <span class="d-none d-sm-inline-block"> Crafted <i
+                                    class="mdi mdi-heart text-danger"></i> by Maxtra Technologies</span>
+                        </footer>
+                        <div>
+                            <a href="error">Privacy Policy</a>
+                            &middot;
+                            <a href="error">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="/public/assets/js/scripts.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <script src="/public/assets/js/app.js"></script>
+
+    <script>
+        function openUserDetail(data) {
+            console.log(data, 'data edit candidate');
+            $('#container').find('img').remove();
+            $.ajax({
+                url: "/getUserData",
+                data: { _id: data },
+                type: "GET",
+                contentType: "application/json",
+                success: function (response) {
+                    console.log(response)
+                    $(".userId").html(response._id);
+                    $(".example-text-input").html(response.data.username);
+                    $(".example-email-input").html(response.data.email);
+                    $(".example-tel-input").html(response.data.phoneNumber);
+                    $(".example-address-input").html(response.data.address);
+                    // $(".img").html('<img src="./upload/'+response.data.profileImage+'" width="200px">');
+                    $(".img").html('<img style="height: 80px;" src="./upload/' + response.data.profileImage + '">');
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(thrownError, 'error')
+                    $(".example-text-input").html('');
+                    $(".example-email-input").html('');
+                    $(".example-tel-input").html('');
+                    $(".example-img-input").html('');
+                }
+            });
+        }
+    </script>
+
+    <!-- model popup -->
+
+    <div class="modal" id="logOutModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mt-0">Log Out</h5>
+                    <button type="button" class="close btn btn-danger" data-bs-dismiss="modal"
+                        aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to logout ?</p>
+
+                    <a href="/logout"><button type="button" class="btn btn-primary">yes</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end of model popup  -->
+
+    <!-- view detail -->
+    <div class="modal fade  viewModel" id="viewModel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mt-0" id="myLargeModalLabel">User Detail</h5>
+                    <button type="button" class="close btn btn-danger" data-bs-dismiss="modal"
+                        aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
+
+                        <div class="form-group row mb-3">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <h6 class="example-text-input"></h6>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label for="example-email-input" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <h6 class="example-email-input"></h6>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label for="example-tel-input" class="col-sm-2 col-form-label">Telephone</label>
+                            <div class="col-sm-10">
+                                <h6 class="example-tel-input"></h6>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label for="example-address-input" class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-10">
+                                <h6 class="example-address-input"></h6>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row mb-3">
+                            <label for="img" class="col-sm-2 col-form-label">Profile Image</label>
+                            <div class="col-sm-10 img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- view detail Close -->
+</body>
+
+</html>
